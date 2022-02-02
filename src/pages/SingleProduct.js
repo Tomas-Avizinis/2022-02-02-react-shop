@@ -1,9 +1,18 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import {useParams} from "react-router-dom";
+import MainContext from "../context/MainContext";
+import ProdCard from "../components/ProdCard";
 
 const SingleProduct = () => {
+
+    const {currentProduct}=useContext(MainContext);
+    const {params}=useParams();
+    console.log(params)
+
     return (
-        <div>
-            One single product in this page
+        <div className={'single-product flex-col'}>
+            <h2>One single product in this page: {currentProduct.title}</h2>
+            <ProdCard product={currentProduct} className={'product-card'}/>
         </div>
     );
 };
