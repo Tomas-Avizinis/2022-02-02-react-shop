@@ -15,11 +15,14 @@ const CreateProduct = () => {
 
     const createProduct=()=>{
 
+        console.log('kainos tipas', typeof prodPrice.current.value)
+        console.log('kainos tipas', typeof Number(prodPrice.current.value))
+
         const newProduct = {
             title:prodTitle.current.value,
             description: prodText.current.value,
             image:prodImage.current.value,
-            price:prodPrice.current.value
+            price:Number(prodPrice.current.value)
         };
 
         if (Object.values(newProduct).every(Boolean)) {
@@ -30,7 +33,7 @@ const CreateProduct = () => {
 
 
     return (
-        <div className={'create-products'}>
+        <div className={'main-container'}>
             <h2>Create new product in shop</h2>
             <div className={'create-product-box flex-col'}>
                 <input type="text" ref={prodTitle} placeholder={'Title'}/>

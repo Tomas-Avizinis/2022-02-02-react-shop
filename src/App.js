@@ -25,24 +25,24 @@ function App() {
             "title": "pienas",
             "description": "baltas",
             "image": "https://upload.wikimedia.org/wikipedia/commons/a/a5/Glass_of_Milk_%2833657535532%29.jpg",
-            "price": "2.09"
+            "price": 2.09
         },
         {
             "title": "medus",
             "description": "tirastas ir saldus siumeciu biciu medus",
             "image": "https://oily.shop/wp-content/uploads/2020/12/fresh-honey-500x500-1.jpg",
-            "price": "5.99"
+            "price": 5.99
         },
         {
             "title": "Varske",
             "description": "gamintojas: Pieno zvaigzdes",
             "image": "https://pienozvaigzdes.lt/lt/542-large_default/mu-varske-9-1kg.jpg",
-            "price": "1.59"
+            "price": 1.59
         }
     ]);
     const [currentProduct, setCurrentProduct]=useState();
     const [cart, setCart]=useState([]);
-    const [money, setMoney]=useState(1000);
+    const [totalPrice, setTotalPrice]=useState(0);
 
     const showSingleProd=(prod)=>{
         console.log('rodysime tik produkta', prod.title);
@@ -52,13 +52,14 @@ function App() {
 
     const addToCart=(prod)=>{
 
-        //     if (cash>=item.price) {
-        //         setCash((cash-item.price).toFixed(2));
+        setTotalPrice(parseFloat((totalPrice + prod.price).toFixed(2)));
 
         const newProduct=prod;
+
         if (cart.some(x=>x.title===prod.title)) { //jei tokia preke jau turiu krepselyje
             newProduct.ammount=cart.find(x=>x.title===prod.title).ammount+1;
             setCart(cart.map(x => x.title === prod.title ? newProduct : x));
+
         } else { // jei tokia preke pirma, ir anksciau jos krepselyje nebuvo
             newProduct.ammount=1;
             setCart([...cart,newProduct])
@@ -67,6 +68,8 @@ function App() {
     }
 
     const removeFromCart=(prod)=>{
+
+        setTotalPrice(parseFloat((totalPrice - prod.price).toFixed(2)));
 
         const productToRemove=prod;
         if (prod.ammount>1) {
@@ -77,7 +80,7 @@ function App() {
 
 
   return (
-        <MainContext.Provider value={{products, setProducts, cart, setCart, showSingleProd, currentProduct, setCurrentProduct, addToCart, removeFromCart}}>
+        <MainContext.Provider value={{products, setProducts, cart, setCart, showSingleProd, currentProduct, setCurrentProduct, addToCart, removeFromCart, totalPrice}}>
 
             <div className="App">
                 <TopHeader/>

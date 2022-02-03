@@ -7,14 +7,14 @@ const ProductList = ({product}) => {
     console.log('produktu sarasas', product)
 
     return (
-        <div className={'product-list'}>
+        <div className={'product-list-item'}>
             <img src={product.image} alt={product.title} onClick={()=>showSingleProd(product)}/>
             <h3>{product.title}</h3>
             <p><b>{product.price}</b></p>
             <div className={'flex'}>
-                <button onClick={()=>{addToCart(product)}}>+</button>
+                <button className={'add-remove-btn'} onClick={()=>{addToCart(product)}}>+</button>
                 <div><b>{product.ammount}</b></div>
-                <button onClick={()=>{removeFromCart(product)}}>-</button>
+                <button className={'add-remove-btn'} onClick={()=>{removeFromCart(product)}}>-</button>
             </div>
 
         </div>

@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import {useParams} from "react-router-dom";
 import MainContext from "../context/MainContext";
-import ProdCard from "../components/ProdCard";
+import SingleProdCard from "../components/SingleProdCard";
 
 const SingleProduct = () => {
 
@@ -10,9 +10,8 @@ const SingleProduct = () => {
     console.log(params)
 
     return (
-        <div className={'single-product flex-col'}>
-            <h2>One single product in this page: {currentProduct.title}</h2>
-            <ProdCard product={currentProduct} className={'product-card'}/>
+        <div className={'main-container'}>
+            <SingleProdCard product={currentProduct} />
         </div>
     );
 };
