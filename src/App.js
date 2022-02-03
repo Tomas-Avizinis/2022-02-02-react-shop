@@ -1,5 +1,5 @@
 import './App.css';
-import {BrowserRouter, Routes, Route, useNavigate} from "react-router-dom";
+import {Routes, Route, useNavigate} from "react-router-dom";
 import Products from "./pages/Products";
 import MainContext from "./context/MainContext";
 import TopHeader from "./components/TopHeader";
@@ -16,26 +16,26 @@ function App() {
 
     const [products, setProducts]=useState([
         {
-            "title": "Pavadinimas Dėžė",
-            "description": "Aprasymas: Dėžės paveikslėlis simbolizuoja bet kokį produktą kuris gali joje slėptis, žr. istoriją apie Mažajį princą ir avies dėžeje paveikslėlį.",
+            "title": "Dėžė, tiesiog dėžė",
+            "description": 'Dėžė simbolizuoja bet kokį produktą kuris gali joje slėptis (pvz. istorija apie Mažajį princą ir "avies dėžeje" paveikslėlį).',
             "image": "https://cdn.shopify.com/s/files/1/1521/3612/products/sy-carton-box-10-pack-hc58_600_grande.jpg",
             "price": 15.99
         },
         {
             "title": "pienas",
-            "description": "baltas",
+            "description": "Baltas. Gamintojas - karvė.",
             "image": "https://upload.wikimedia.org/wikipedia/commons/a/a5/Glass_of_Milk_%2833657535532%29.jpg",
             "price": 2.09
         },
         {
-            "title": "medus",
-            "description": "tirastas ir saldus siumeciu biciu medus",
+            "title": "Medus",
+            "description": "tirštas ir saldus bičių suneštas medus",
             "image": "https://oily.shop/wp-content/uploads/2020/12/fresh-honey-500x500-1.jpg",
             "price": 5.99
         },
         {
-            "title": "Varske",
-            "description": "gamintojas: Pieno zvaigzdes",
+            "title": "Varškė",
+            "description": "Gamintojas - Pieno zvaigždės",
             "image": "https://pienozvaigzdes.lt/lt/542-large_default/mu-varske-9-1kg.jpg",
             "price": 1.59
         }

@@ -8,8 +8,8 @@ const ShoppingCart = () => {
     const {cart, totalPrice}=useContext(MainContext);
 
     return (
-        <div className={'shopping-cart'}>
-            <h2>CART. My selected products</h2>
+        <div className={'main-container'}>
+            <h2>SHOPPING CART. My selected products</h2>
             <div className={'product-list'}>
                 {cart.map((p, i)=><ProductList product={p} className={'product-card'} key={i}/>)}
                 <div className={'price-line'}> Total price:  <b>  {totalPrice}</b></div>
